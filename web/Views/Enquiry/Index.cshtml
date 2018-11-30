@@ -1,0 +1,17 @@
+@model EnquiryViewModel
+
+<form method="post" asp-action="Enquiry">
+  
+  <input asp-for="Name">
+
+  <br>
+
+  <input asp-for="Email">
+  
+  <br>
+  
+  <textarea asp-for="Message"></textarea>
+  
+  <button>Submit</button>
+  
+</form>
