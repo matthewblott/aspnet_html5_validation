@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> - aspnet_html5_validation</title>
+  <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+
+    .form-control-sm{
+      width:150px
+    }
+
+    input:invalid:placeholder-shown + span::before {
+      content: attr(title);
+    }
+    
+    /*input[type="email"]:focus:invalid:not(:placeholder-shown) + span::before {*/
+      /*content: 'invalid';*/
+    /*}*/
+
+  </style>
+
+</head>
+<body>
+
+<form id="user-form" method="post" action="/user/create">
+
+  <label for="Name">Name</label>
+  <input id="Name" name="Name" placeholder="username" required maxlength="20">
+  <span class="text-danger" title="required"></span>
+  <br>
+
+  <label for="Email">Email</label>
+  <input type="email" id="Email" placeholder="name@domain" name="Email" required maxlength="20" title="Please enter in the correct format">
+  <span class="text-danger"></span>
+  
+  <br>
+
+  <button>Submit</button>
+
+
+</form>
+
+<script>
+  
+  document.querySelectorAll('input,textarea').forEach(function(form) {
+    form.addEventListener('invalid', function(e) { e.preventDefault(); }, true);
+  });
+  
+  (function(){
+    
+  })();
+  
+  
+</script>
+
+</body>
+</html>

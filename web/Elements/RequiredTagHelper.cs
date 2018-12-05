@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
@@ -21,10 +23,18 @@ namespace aspnet_html5_validation
       if (context.AllAttributes["required"] == null) 
       {
         var isRequired = IsRequired(For.ModelExplorer.Metadata.ValidatorMetadata);
+
+        
         
         if (isRequired)
         {
-          output.Attributes.Add("required", "required");
+          //output.Attributes.Add("required", "required");
+          
+          var attr = new TagHelperAttribute("required", string.Empty, HtmlAttributeValueStyle.Minimized);
+
+          output.Attributes.Add(attr);
+
+          
         }
 
         foreach (var attribute in output.Attributes)
@@ -37,11 +47,17 @@ namespace aspnet_html5_validation
           }
         }
         
+        
+        
+        // tagBuilder.MergeAttribute("required", string.Empty);
 
         foreach (var attribute in output.Attributes)
         {
           if (attribute.Name == "data-val-required")
           {
+//            var builder = new TagBuilder("input");
+//            builder.MergeAttribute("required", string.Empty);
+            
             output.Attributes.Remove(attribute);
             break;
             
