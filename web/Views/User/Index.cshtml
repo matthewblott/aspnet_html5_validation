@@ -2,7 +2,7 @@
 
 <style>
 
-    /* required */
+  /* required */
   input[required]:placeholder-shown ~ span.required {
     display: inline-block;
   }
@@ -48,6 +48,35 @@
     </div>
   </div>
 
+  
+  <div class="field">
+    <label class="label" asp-for="Email"></label>
+    <div class="control has-icons-left">
+      <input class="input" asp-for="Email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="help is-danger required">*</span>
+      <span class="help is-danger invalid">invalid</span>
+    </div>
+  </div>
+  
+  <div class="field">
+    <label class="label" asp-for="Password"></label>
+    <div class="control">
+      <input class="input" asp-for="Password">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label" asp-for="PasswordCompare"></label>
+    <div class="control">
+      <input class="input" asp-for="PasswordCompare">
+    </div>
+  </div>
+
+  
+  
   <div class="field">
     <div class="control">
       <button class="button is-link">Submit</button>
