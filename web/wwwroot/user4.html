@@ -3,22 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> - aspnet_html5_validation</title>
   <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/site.css">
   <style>
 
-    .form-control-sm{
-      width:150px
+    /* required */
+    input[required]:placeholder-shown ~ span.required {
+      display: inline-block;
     }
 
-    input:invalid:placeholder-shown + span::before {
-      content: attr(title);
+    input[required]:not(:placeholder-shown) ~ span.required {
+      display: none;
     }
-    
-    /*input[type="email"]:focus:invalid:not(:placeholder-shown) + span::before {*/
-      /*content: 'invalid';*/
-    /*}*/
+
+    /* invalid */
+    input:invalid:placeholder-shown ~ span.invalid {
+      display: none;  
+    }
+
+    input:valid:not(:placeholder-shown) ~ span.invalid {
+      display: none;
+    }
 
   </style>
 
@@ -27,19 +31,22 @@
 
 <form id="user-form" method="post" action="/user/create">
 
-  <label for="Name">Name</label>
-  <input id="Name" name="Name" placeholder="username" required maxlength="20">
-  <span class="text-danger" title="required"></span>
-  <br>
-
-  <label for="Email">Email</label>
-  <input type="email" id="Email" placeholder="name@domain" name="Email" required maxlength="20" title="Please enter in the correct format">
-  <span class="text-danger"></span>
+  <div>
+    <label for="Name">Name</label>
+    <input id="Name" name="Name" placeholder="username" required maxlength="10">
+    <span class="text-danger required">required</span>
+    
+  </div>
   
-  <br>
+  <div>
+    <label for="Email">Email</label>
+    <input type="email" id="Email" placeholder="name@domain" name="Email" required>
+    <span class="text-danger required">required</span>
+    <span class="text-danger invalid">invalid</span>
+
+  </div>
 
   <button>Submit</button>
-
 
 </form>
 
@@ -48,11 +55,6 @@
   document.querySelectorAll('input,textarea').forEach(function(form) {
     form.addEventListener('invalid', function(e) { e.preventDefault(); }, true);
   });
-  
-  (function(){
-    
-  })();
-  
   
 </script>
 

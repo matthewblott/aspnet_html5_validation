@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/lib/bulma/css/bulma.min.css">
+  <style>
+
+    /* required */
+    /*input[required]:placeholder-shown ~ span.required {*/
+      /*display: none;*/
+    /*}*/
+
+    input[required]:valid ~ span.required {
+      display: none;
+    }
+
+
+    input[required]:invalid:not(:placeholder-shown) ~ span.required {
+      display: inline-block;
+    }
+    
+     /*invalid */
+     /*input:invalid:placeholder-shown {*/
+       /*display: inline-block;*/
+     /*} */
+     
+     /*input:valid:not(:placeholder-shown) {*/
+       /*display: none;*/
+     /*} */
+
+  </style>
+
+</head>
+<body>
+
+<form method="post" action="user5.html">
+  <div>
+    <label for="Username">Username</label>
+    <input id="Username" name="Username" placeholder="Username" maxlength="20" required>
+    <span class="required">*</span>
+  </div>
+  <div>
+    <label for="Email">Email</label>
+    <input type="email" id="Email" name="Email" placeholder="Email" maxlength="20" required>
+    <span class="required">*</span>
+  </div>
+  <div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </div>
+</form>
+
+
+
+<!--<div class="container is-fluid">-->
+
+  <!--<form method="post" action="user5.html">-->
+    <!--<div class="field">-->
+      <!--<label class="label" for="Username">Username</label>-->
+      <!--<div class="control">-->
+        <!--<input class="input" id="Username" name="Username" required maxlength="20">-->
+        <!--<span class="help is-danger required">*</span>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="field">-->
+      <!--<label class="label" for="Email">Email</label>-->
+      <!--<div class="control">-->
+        <!--<input class="input" type="email" id="Email" name="Email" maxlength="20" required>-->
+        <!--<span class="help is-danger required">*</span>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="field">-->
+      <!--<div class="control">-->
+        <!--<button class="button is-link">Submit</button>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</form>-->
+    <!---->
+<!--</div>-->
+
+
+</body>
+</html>
