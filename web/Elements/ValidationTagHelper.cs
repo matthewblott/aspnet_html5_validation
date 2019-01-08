@@ -28,10 +28,30 @@ namespace aspnet_html5_validation
       var minLengthAdded = false;
       var maxLengthAdded = false;
 
+      var isDate = false;
+      
       for (var i = 0; i < attributes?.Count; i++)
       {
         switch (attributes[i])
         {
+          case DataTypeAttribute attribute:
+
+            if (attribute.DataType == DataType.Date)
+            {
+              isDate = true;
+
+              output.Attributes.Add(new TagHelperAttribute("type", "date"));
+              
+              // value, min, max
+              
+            }
+            
+            break;
+          
+          case RegularExpressionAttribute attribute:
+            output.Attributes.Add(new TagHelperAttribute("pattern", attribute.Pattern));
+            
+            break;
           case CompareAttribute attribute:
             output.Attributes.Add(new TagHelperAttribute("data-html5-compare", attribute.OtherProperty));
             

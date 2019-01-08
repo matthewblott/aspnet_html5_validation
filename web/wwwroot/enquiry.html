@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/lib/bulma/css/bulma.min.css">
+
+
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+<div class="container is-fluid">
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Home
+        </a>
+        <a class="navbar-item" href="/Enquiry">
+          Enquiry
+        </a>
+        <a class="navbar-item" href="/User">
+          User
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+</div>
+
+<div class="container is-fluid">
+
+  <form method="post" action="/user/Create">
+
+    <div class="field">
+      <label class="label" for="Username">Username</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="text" id="Username" name="Username" placeholder="Username" minlength="3" maxlength="20" required>
+        <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+        <span class="help is-danger required">*</span>
+        <span class="help is-danger invalid">invalid</span>
+
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="Email">Email</label>
+      <div class="control has-icons-left">
+        <input class="input" type="email" id="Email" name="Email" placeholder="Email" maxlength="20" required minlength="3">
+        <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+        <span class="help is-danger required">*</span>
+        <span class="help is-danger invalid">invalid</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="Gender">Gender</label>
+      <div class="control has-icons-left">
+
+        <input type="radio" value="Male" required checked="checked" id="Gender" name="Gender" required> Male<br>
+        <input type="radio" value="Female" required id="Gender" name="Gender" required> Female<br>
+        <input type="radio" value="Other" required id="Gender" name="Gender" required> Other<br>
+        <span class="help is-danger required">*</span>
+      </div>
+
+    </div>
+
+    <div class="field">
+      <label class="label" for="DateOfBirth">Date of birth</label>
+      <div class="control">
+        <input class="input" type="date" id="DateOfBirth" placeholder="2018-12-31" value="" name="DateOfBirth" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" type="date">
+        <span class="help is-danger required">*</span>
+        <span class="help is-danger invalid">invalid</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="Password">Password</label>
+      <div class="control">
+        <input class="input" type="password" id="Password" name="Password" placeholder="Password" maxlength="20" required minlength="1" pattern="^([a-zA-Z])(?=.*\d)\w{4,9}$">
+        <span class="help is-danger required">*</span>
+        <span class="help is-danger invalid">invalid</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="PasswordCompare">Password Compare</label>
+      <div class="control">
+        <input class="input" type="password" id="PasswordCompare" name="PasswordCompare" placeholder="Password Compare" maxlength="20" required minlength="1" data-html5-compare="Password">
+        <span class="help is-danger required">*</span>
+        <span class="help is-danger invalid">invalid</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+    </div>
+
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8IosTvIxirRKjfMBcFwCTrzuF8cXH9QdgRNSlDrI37yHb3-638U2ADmXzZOWHLMUsUqMnqRtIbqRX9W6WLI-uc2NVfQfu8b9RjQYWvcAtKH-PEaB9jvARX7RHLAIVFyPPvqU9h9FOwW1XVyogCiqtCo" /></form>
+
+
+</div>
+
+
+
+
+
+<script src="/js/site.js?v=8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U"></script>
+
+
+<script src="/js/validation.js"></script>
+
+
+</body>
+</html>

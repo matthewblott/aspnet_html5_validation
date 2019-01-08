@@ -1,12 +1,16 @@
-document.querySelectorAll('input,textarea,select').forEach((el) => el.addEventListener('invalid', (e) => e.preventDefault(), true));
+(function() {
+  
+  document.querySelectorAll('input,textarea,select').forEach((el) => el.addEventListener('invalid', (e) => e.preventDefault(), true));
 
-const selector = 'data-html5-compare';
+  const selector = 'data-html5-compare';
 
-document.querySelectorAll(`input[${selector}]`).forEach((c) => {
-  const p = document.getElementById(c.attributes[selector].value);
-  const e = () => c.setCustomValidity(c.value === p.value ? '' : '.');
+  document.querySelectorAll(`input[${selector}]`).forEach((c) => {
+    const p = document.getElementById(c.attributes[selector].value);
+    const e = () => c.setCustomValidity(c.value === p.value ? '' : '.');
 
-  c.addEventListener('keyup', e, true);
-  p.addEventListener('change', e, true);
+    p.addEventListener('change', e, true);
+    c.addEventListener('keyup', e, true);
 
-});
+  });
+  
+})();

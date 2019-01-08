@@ -2,16 +2,49 @@
 
 <form method="post" asp-action="Enquiry">
   
-  <input asp-for="Name">
+  <div class="field">
+    <label class="label" asp-for="Name"></label>
+    <div class="control">
+      <input class="input" asp-for="Name">
+      <span class="help is-danger required">*</span>
+      <span class="help is-danger invalid">invalid</span>
+    </div>
+  </div>
 
-  <br>
-
-  <input asp-for="Email">
+  <div class="field">
+    <label class="label" asp-for="Email"></label>
+    <div class="control">
+      <input class="input" asp-for="Email">
+      <span class="help is-danger required">*</span>
+      <span class="help is-danger invalid">invalid</span>
+    </div>
+  </div>
   
-  <br>
+  <div class="field">
+    <label class="label" asp-for="Subjects"></label>
+    <div class="control select is-multiple">
+      <select asp-for="Subjects" asp-items="Model.Subjects" size="5"></select>
+      <span class="help is-danger required">*</span>
+    </div>
+  </div>
   
-  <textarea asp-for="Message"></textarea>
+  <div class="field">
+    <label class="label" asp-for="Message"></label>
+    <div class="control">
+      <textarea class="textarea" asp-for="Message"></textarea>
+      <span class="help is-danger required">*</span>
+      <span class="help is-danger invalid">invalid</span>
+    </div>
+  </div>
   
-  <button>Submit</button>
+  <div class="field">
+    <div class="control">
+      <button class="button is-link">Submit</button>
+    </div>
+  </div>
   
 </form>
+
+@section Scripts {
+  <partial name="_ValidationScripts" />
+}
