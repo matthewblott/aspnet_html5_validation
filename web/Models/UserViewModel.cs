@@ -15,20 +15,21 @@ namespace aspnet_html5_validation
 //    public string FirstName { get; set; }
 //    public string LastName { get; set; }
     
-//    [MaxLength(20)]
+    [MaxLength(20)]
     [Required]
     [EmailAddress]
     [Display(Prompt = "Email")]
     [StringLengthAttribute(20, MinimumLength = 3)]
     public string Email { get; set; }
     
-//    [MaxLength(20)]
+    [MaxLength(20)]
     [Required]
     [DataType(DataType.Password)]
     [StringLengthAttribute(20, MinimumLength = 1)]
+    [Display(Name = "Password", Prompt = "Password")]
     public string Password { get; set; }  
     
-//    [MaxLength(20)]
+    [MaxLength(20)]
     [Required]
     [StringLengthAttribute(20, MinimumLength = 1)]
     [DataType(DataType.Password)]

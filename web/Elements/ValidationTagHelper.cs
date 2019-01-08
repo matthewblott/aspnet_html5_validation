@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -18,7 +18,6 @@ namespace aspnet_html5_validation
     {
       base.Process(context, output);
 
-//      var metadata = For.ModelExplorer.Metadata.ValidatorMetadata;
       var defaultMetadata = For.ModelExplorer.Metadata as DefaultModelMetadata;
       var attributes = defaultMetadata?.Attributes.Attributes;
 
@@ -33,6 +32,10 @@ namespace aspnet_html5_validation
       {
         switch (attributes[i])
         {
+          case CompareAttribute attribute:
+            output.Attributes.Add(new TagHelperAttribute("data-html5-compare", attribute.OtherProperty));
+            
+            break;
           case EditableAttribute attribute:
             if (!attribute.AllowEdit)
             {
@@ -80,35 +83,17 @@ namespace aspnet_html5_validation
             }
             
             break;
-
           
         }
         
       }
       
-      void RemoveDataValAttribute(string attributeName)
+      while (output.Attributes.Any(_ => _.Name.StartsWith("data-val")))
       {
-        foreach (var attribute in output.Attributes)
-        {
-          if (attribute.Name == attributeName)
-          {
-            output.Attributes.Remove(attribute);
-            break;
-          }
-        }
+        output.Attributes.Remove(output.Attributes.First(_ => _.Name.StartsWith("data-val")));
       }
       
-      RemoveDataValAttribute("data-val");
-      RemoveDataValAttribute("data-val-required");
-      RemoveDataValAttribute("data-val-length");
-      RemoveDataValAttribute("data-val-length-min");
-      RemoveDataValAttribute("data-val-length-max");
-      RemoveDataValAttribute("data-val-maxlength-max");
-      RemoveDataValAttribute("data-val-maxlength");
-      RemoveDataValAttribute("data-val-minlength-min");
-      RemoveDataValAttribute("data-val-minlength");
-
-      if (string.IsNullOrWhiteSpace(output.Attributes["value"].Value.ToString()))
+      if (output.Attributes["value"]?.Value?.ToString() == string.Empty)
       {
         output.Attributes.Remove(output.Attributes["value"]);
       }

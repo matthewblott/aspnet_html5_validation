@@ -1,35 +1,5 @@
 @model UserViewModel
 
-<style>
-
-  /* required */
-  input[required]:placeholder-shown ~ span.required {
-    display: inline-block;
-  }
-
-  input[required]:not(:placeholder-shown) ~ span.required {
-    display: none;
-  }
-
-  input:read-only ~ span.required {
-    display: none !important;
-  }
-
-  /* invalid */
-  input:invalid:placeholder-shown ~ span.invalid {
-    display: none;
-  }
-  
-  input:valid:not(:placeholder-shown) ~ span.invalid {
-    display: none;
-  }
-
-  input:read-only ~ span.invalid {
-    display: none;
-  }
-
-</style>
-
 <form method="post" asp-action="Create">
 
   <div class="field">
@@ -65,6 +35,8 @@
     <label class="label" asp-for="Password"></label>
     <div class="control">
       <input class="input" asp-for="Password">
+      <span class="help is-danger required">*</span>
+      <span class="help is-danger invalid">invalid</span>
     </div>
   </div>
 
@@ -72,10 +44,10 @@
     <label class="label" asp-for="PasswordCompare"></label>
     <div class="control">
       <input class="input" asp-for="PasswordCompare">
+      <span class="help is-danger required">*</span>
+      <span class="help is-danger invalid">invalid</span>
     </div>
   </div>
-
-  
   
   <div class="field">
     <div class="control">
@@ -84,10 +56,3 @@
   </div>
 
 </form>
-
-<script>
-    
-  document.querySelectorAll('input,textarea,select').forEach((el) =>
-    el.addEventListener('invalid', (e) => e.preventDefault(), true));
-  
-</script>

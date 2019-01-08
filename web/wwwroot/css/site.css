@@ -1,0 +1,27 @@
+/* Validation */
+
+/* required */
+input[required]:placeholder-shown ~ span.required {
+  display: inline-block;
+}
+
+input[required]:not(:placeholder-shown) ~ span.required {
+  display: none;
+}
+
+input:read-only ~ span.required {
+  display: none !important;
+}
+
+/* invalid */
+input:invalid:placeholder-shown ~ span.invalid {
+  display: none;
+}
+
+input:valid:not(:placeholder-shown) ~ span.invalid {
+  display: none;
+}
+
+input:read-only ~ span.invalid {
+  display: none;
+}
