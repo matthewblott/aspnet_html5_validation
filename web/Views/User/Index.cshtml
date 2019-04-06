@@ -33,12 +33,13 @@
   <div class="field">
     <label class="label" asp-for="Gender"></label>
     <div class="control has-icons-left">
-    
-      @foreach (var gender in Enum.GetValues(typeof(UserViewModel.GenderType)))
-      {
-        <input asp-for="Gender" type="radio" value="@gender" required> @gender<br>
-      }
-      <span class="help is-danger required">*</span>
+  
+     @foreach (var gender in Enum.GetValues(typeof(UserViewModel.GenderType)))
+     {
+       <input asp-for="Gender" type="radio" value="@gender"> @gender<br>
+     }
+
+    <span class="help is-danger required">*</span>
     </div>
     
   </div>

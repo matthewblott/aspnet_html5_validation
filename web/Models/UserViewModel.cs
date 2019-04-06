@@ -29,13 +29,13 @@ namespace aspnet_html5_validation
     
     [Required]
     [Display(Name = "Gender")]
-    public GenderType Gender { get; set; }
+    public GenderType? Gender { get; set; }
     
     [Required]
-    [Display(Name = "Date of birth", Prompt = "2018-12-31")]
     [RegularExpression("[0-9]{4}-[0-9]{2}-[0-9]{2}")]
     [DataType(DataType.Date)]
-    public DateTime DateOfBirth { get; set; }
+    [Display(Name = "Date of birth")]
+    public DateTime? DateOfBirth { get; set; }
     
     [MaxLength(20)]
     [Required]

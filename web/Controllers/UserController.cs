@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspnet_html5_validation.Controllers
@@ -8,7 +9,10 @@ namespace aspnet_html5_validation.Controllers
     {
       var userViewModel = new UserViewModel();
       
+//      userViewModel.DateOfBirth = DateTime.Today;
+      
       return View(userViewModel);
+      
     }
 
     [HttpPost]

@@ -1,8 +1,11 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.EntityFrameworkCore.Scaffolding.Internal;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace aspnet_html5_validation
 {
@@ -29,7 +32,17 @@ namespace aspnet_html5_validation
       var maxLengthAdded = false;
 
       var isDate = false;
+
+      var q =
+        from _ in attributes where _ is DataTypeAttribute select _;
       
+      var q0 =
+        from _ in q
+        where ((DataTypeAttribute)_).DataType == DataType.DateTime
+        select _;
+
+      var isDate0 = q0.Any();
+
       for (var i = 0; i < attributes?.Count; i++)
       {
         switch (attributes[i])
@@ -69,6 +82,12 @@ namespace aspnet_html5_validation
             break;
           
           case DisplayAttribute attribute:
+
+            if (isDate)
+            {
+              attribute.Prompt = DateTime.Today.ToShortDateString();
+            }
+
             break;
           
           case StringLengthAttribute attribute:
@@ -93,7 +112,7 @@ namespace aspnet_html5_validation
               minLengthAdded = true;
             }
             
-            break;
+            break;  
 
           case MaxLengthAttribute attribute:
             if (attribute.Length > 0 && context.AllAttributes[maxlength] == null && !maxLengthAdded)
