@@ -6,9 +6,9 @@ namespace aspnet_html5_validation.controllers
 {
   public class EnquiryController : Controller
   {
-    public IActionResult Index()
+    private static IEnumerable<Subject> GetSubjectList()
     {
-      var subjects = new List<Subject>
+      return new List<Subject>
       {
         new Subject
         {
@@ -36,15 +36,24 @@ namespace aspnet_html5_validation.controllers
           Name = "E",
         },
       };
-      
+
+    }
+
+    public IActionResult Index()
+    {
       var model = new EnquiryViewModel
       {
-        Subjects = new MultiSelectList(subjects, nameof(Subject.Id), nameof(Subject.Name))
+        Subjects = new MultiSelectList(GetSubjectList(), nameof(Subject.Id), nameof(Subject.Name))
       };
       
       return View(model);
     }
 
+    public IActionResult Subjects()
+    {
+      return View(GetSubjectList());
+    }
+    
     [HttpPost]
     public IActionResult Enquiry(EnquiryViewModel enquiryViewModel)
     {

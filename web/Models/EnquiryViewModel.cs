@@ -25,7 +25,7 @@ namespace aspnet_html5_validation
     public string Email { get; set; }
 
     [Required]
-    [Display(Prompt = "Subject(s)")]
+    [Display(Name = "Subject(s)", Prompt = "Subject(s)")]
     //public IEnumerable<SelectListItem> Subjects { get; set; }
     public MultiSelectList Subjects { get; set; }
     

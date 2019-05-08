@@ -1,0 +1,30 @@
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model IEnumerable<Subject>
+
+<table class="table">
+
+  <tr>
+    <th scope="col">Id</th>
+
+    @* <th scope="col">@Html.DisplayNameFor(x => x.FirstOrDefault().Name)</th> *@
+    
+    <th scope="col">@Html.DisplayColumnNameFor(Model, x => x.Name)</th>
+
+  </tr>
+
+  
+  @ViewData.ModelMetadata.DisplayName
+  
+  @foreach(var item in Model)
+  {
+    <tr>
+      <td>
+        @item.Id
+      </td>
+      <td>
+        @item.Name
+      </td>
+    </tr>
+  }
+
+</table>
