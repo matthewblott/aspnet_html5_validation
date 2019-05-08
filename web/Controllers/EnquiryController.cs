@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace aspnet_html5_validation.Controllers
+namespace aspnet_html5_validation.controllers
 {
   public class EnquiryController : Controller
   {

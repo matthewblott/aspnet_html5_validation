@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -11,7 +12,8 @@ namespace aspnet_html5_validation
     [MaxLength(10, ErrorMessage = "{1} max characters")]
     [Required]
     [Editable(true)]
-    [Display(Prompt = "Name")]
+    [Display(Prompt = nameof(Name))]
+    [DisplayName(nameof(Name))]
     [StringLengthAttribute(20, MinimumLength = 3)]
     public string Name { get; set; }
     
