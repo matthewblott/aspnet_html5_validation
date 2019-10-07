@@ -4,14 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@ViewData["Title"]</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-  <environment include="Development">
-    <link rel="stylesheet" href="~/lib/bulma/css/bulma.min.css">
-  </environment>
-  <environment include="Staging,Production">
-    <link rel="stylesheet" href="~/lib/bulma/css/bulma.min.css">
-  </environment>
-  <link rel="stylesheet" href="~/css/site.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch@0.7.2/slate/bulmaswatch.min.css">
+  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
 </head>
 <body>
     
@@ -42,11 +37,6 @@
   <div class="container is-fluid">
     @RenderBody()
   </div>
-    
-  <environment include="Development">
-  </environment>
-  <environment exclude="Development">
-  </environment>
   
   <script src="~/js/site.js" asp-append-version="true"></script>
   

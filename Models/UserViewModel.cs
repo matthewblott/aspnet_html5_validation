@@ -16,7 +16,7 @@ namespace aspnet_html5_validation
     [MaxLength(20)]
     [Required]
     [Editable(true)]
-    [Display(Prompt = "Username")]
+    [Display]
     [StringLengthAttribute(20, MinimumLength = 3)]
     public string Username { get; set; }
     
