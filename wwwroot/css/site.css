@@ -1,99 +1,39 @@
-/* Validation */
-
-/* required */
-input[required]:placeholder-shown ~ span.required {
-  display: inline-block;
+/* controls */
+.control {
+  max-width: 600px;
 }
 
-input[required]:not(:placeholder-shown) ~ span.required {
+/* calendar fix */
+.datetimepicker-dummy-input, .datetimepicker-dummy-wrapper {
+  background-color: #fff;
+  max-width: 600px !important;
+  border-radius: 4px;
+}
+
+.datetimepicker-clear-button {
   display: none;
+  max-width: 600px !important;
+  border-radius: 4px;
 }
 
-input[required]:read-only ~ span.required {
-  display: none;
+/* validation */
+.validation-field[required]:not(:placeholder-shown) {
+  background-image: none;
 }
 
-textarea[required]:placeholder-shown ~ span.required {
-  display: inline-block;
+.validation-field:invalid:not(:placeholder-shown) {
+  color: #ee5f5b;
 }
 
-textarea[required]:not(:placeholder-shown) ~ span.required {
-  display: none;
+input[type="radio"][required]:invalid ~ span.validation::before {
+  content: "*";
+  color: #ee5f5b;
 }
+.validation-field[required]:invalid {
+  display: block !important;
+  background-image: linear-gradient(45deg, transparent, transparent 50%, #ee5f5b 50%, #ee5f5b 100%) !important;
+  background-position: top right !important;
+  background-size: .6em .6em !important;
+  background-repeat: no-repeat !important;
 
-textarea[required]:read-only ~ span.required {
-  display: none;
-}
-
-select[required] ~ span.required {
-  display: inline-block;
-}
-
-select[required][readonly] ~ span.required {
-  display: none;
-}
-
-select[required]:invalid ~ span.required {
-  display: inline-block;
-}
-
-select[required]:valid ~ span.required {
-  display: none;
-}
-
-input[required][type='radio'] ~ span.required {
-  display: inline-block;
-}
-
-input[required][type='radio'][readonly] ~ span.required {
-  display: none;
-}
-
-input[required][type='radio']:invalid ~ span.required {
-  display: inline-block;
-}
-
-input[required][type='radio']:valid ~ span.required {
-  display: none;
-}
-
-input[required][type='checkbox'] ~ span.required {
-  display: inline-block;  
-}
-
-input[required][type='checkbox'][readonly] ~ span.required {
-  display: none;
-}
-
-input[required][type='checkbox']:invalid ~ span.required {
-  display: inline-block;
-}
-
-input[required][type='checkbox']:valid ~ span.required {
-  display: none;
-}
-
-/* invalid */
-input:invalid:placeholder-shown ~ span.invalid {
-  display: none;
-}
-
-input:valid:not(:placeholder-shown) ~ span.invalid {
-  display: none;
-}
-
-input:read-only ~ span.invalid {
-  display: none;
-}
-
-textarea:invalid:placeholder-shown ~ span.invalid {
-  display: none;
-}
-
-textarea:valid:not(:placeholder-shown) ~ span.invalid {
-  display: none;
-}
-
-textarea:read-only ~ span.invalid {
-  display: none;
 }
