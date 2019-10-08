@@ -18,7 +18,6 @@ namespace aspnet_html5_validation
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
       base.Process(context, output);
-
       var defaultMetadata = For.ModelExplorer.Metadata as DefaultModelMetadata;
       var attributes = defaultMetadata?.Attributes.Attributes;
 
@@ -30,16 +29,6 @@ namespace aspnet_html5_validation
       var maxLengthAdded = false;
 
       var isDate = false;
-
-      var q =
-        from _ in attributes where _ is DataTypeAttribute select _;
-      
-      var q0 =
-        from _ in q
-        where ((DataTypeAttribute)_).DataType == DataType.DateTime
-        select _;
-
-      var isDate0 = q0.Any();
 
       for (var i = 0; i < attributes?.Count; i++)
       {
@@ -125,9 +114,9 @@ namespace aspnet_html5_validation
         
       }
       
-      while (output.Attributes.Any(_ => _.Name.StartsWith("data-val")))
+      while (output.Attributes.Any(x => x.Name.StartsWith("data-val")))
       {
-        output.Attributes.Remove(output.Attributes.First(_ => _.Name.StartsWith("data-val")));
+        output.Attributes.Remove(output.Attributes.First(x => x.Name.StartsWith("data-val")));
       }
       
       if (output.Attributes["value"]?.Value?.ToString() == string.Empty)
@@ -135,6 +124,8 @@ namespace aspnet_html5_validation
         output.Attributes.Remove(output.Attributes["value"]);
       }
       
+      output.Attributes.Add(new TagHelperAttribute("data-validation", string.Empty, HtmlAttributeValueStyle.Minimized));
+
     }
     
   }

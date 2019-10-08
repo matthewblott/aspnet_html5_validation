@@ -1,27 +1,24 @@
 @model UserViewModel
 
 <form method="post" asp-action="Create">
-  
   <div class="field">
     <label class="label" asp-for="Username"></label>
     <div class="control has-icons-left has-icons-right">
-      <input class="input validation-field" asp-for="Username">
+      <input class="input" asp-for="Username">
       <span class="icon is-small is-left">
         <i class="fas fa-user"></i>
       </span>
     </div>
   </div>
-  
   <div class="field">
     <label class="label" asp-for="Email"></label>
     <div class="control has-icons-left">
-      <input class="input validation-field" asp-for="Email">
+      <input class="input" asp-for="Email">
       <span class="icon is-small is-left">
         <i class="fas fa-envelope"></i>
       </span>
     </div>
   </div>
-  
   <div class="field">
     <label class="label" asp-for="Gender"></label>
     <div class="control has-icons-left">
@@ -31,7 +28,7 @@
        <input asp-for="Gender" type="radio" value="@gender"> @gender<br>
      }
 
-    <span class="validation"></span>
+    <span data-validation></span>
     </div>
     
   </div>
@@ -39,32 +36,28 @@
   <div class="field">
     <label class="label" asp-for="DateOfBirth"></label>
     <div class="control">
-      <input class="input validation-field" asp-for="DateOfBirth" data-color="dark" data-show-header="false" data-date-format="YYYY-MM-DD">
+      <input class="input" asp-for="DateOfBirth" data-color="dark" data-show-header="false" data-date-format="YYYY-MM-DD">
     </div>
   </div>
-  
   <div class="field">
     <label class="label" asp-for="Password"></label>
     <div class="control">
-      <input class="input validation-field" asp-for="Password">
+      <input class="input" asp-for="Password">
     </div>
   </div>
-
   <div class="field">
     <label class="label" asp-for="PasswordCompare"></label>
     <div class="control">
-      <input class="input validation-field" asp-for="PasswordCompare">
+      <input class="input" asp-for="PasswordCompare">
     </div>
   </div>
-
   <div class="field">
     <label class="label" for="Notes">Notes</label>
     <div class="control">
-      <textarea class="textarea validation-field" id="Notes" maxlength="100" name="Notes"
-                placeholder="For testing textarea" minlength="3" rows="3" required></textarea>
+      <textarea class="textarea" id="Notes" maxlength="100" name="Notes"
+                placeholder="For testing textarea" minlength="3" rows="3" required data-validation></textarea>
     </div>
   </div>
-
   
   <div class="field">
     <div class="control">

@@ -17,16 +17,16 @@
 }
 
 /* validation */
-.validation-field:invalid:not(:placeholder-shown) {
+[data-validation]:invalid:not(:placeholder-shown) {
   color: #ee5f5b;
 }
 
-input[type="radio"][required]:invalid ~ span.validation-field::before {
+input[type="radio"][required]:invalid ~ span[data-validation]::before {
   content: "*";
   color: #ee5f5b;
 }
 
-.validation-field[required]:placeholder-shown {
+[data-validation][required]:placeholder-shown {
   display: block;
   background-image: linear-gradient(45deg, transparent, transparent 50%, #ee5f5b 50%, #ee5f5b 100%);
   background-position: top right;
@@ -35,7 +35,7 @@ input[type="radio"][required]:invalid ~ span.validation-field::before {
 
 }
 
-.validation-field[data-date-format^="YYYY-MM-DD"]:invalid {
+[data-validation][data-date-format^="YYYY-MM-DD"]:invalid {
   background-image: linear-gradient(45deg, transparent, transparent 50%, #ee5f5b 50%, #ee5f5b 100%) !important;
   background-position: top right !important;
   background-size: .6em .6em !important;
@@ -43,6 +43,7 @@ input[type="radio"][required]:invalid ~ span.validation-field::before {
   display: block !important;
 }
 
-.validation-field[required]:not([data-date-format^="YYYY-MM-DD"]):not(:placeholder-shown) {
+[data-validation][required]:not([data-date-format^="YYYY-MM-DD"]):not(:placeholder-shown) {
   background-image: none !important;
 }
+
